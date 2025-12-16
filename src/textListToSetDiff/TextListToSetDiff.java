@@ -34,6 +34,9 @@ public class TextListToSetDiff {
 			System.err.println(e);
 			return;
 		}
+		
+		// Don't forget to close the scanner!
+		cnslScanner.close();
 	}
 
 }
