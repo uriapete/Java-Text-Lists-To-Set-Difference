@@ -31,7 +31,7 @@ public class TextListToSetDiff {
 		// list that holds our two files
 		// using arraylist to squash both references into one variable
 		// should be sorted in order of list sizes
-		ArrayList<File> filesToCompare = new ArrayList<>(2);
+		ArrayList<File> filesToCompare = new ArrayList<>(AMT_FILTER_FILES+1);
 
 		// Testing by outputting what directory we're in
 		try {
