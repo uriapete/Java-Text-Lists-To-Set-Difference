@@ -20,9 +20,12 @@ public class TextListToSetDiff {
 		// get the current directory as a File
 		File userDir = new File(System.getProperty("user.dir"));
 
+		// Testing by outputting what directory we're in
 		try {
 			System.out.println("Searching in: "+userDir.getCanonicalPath());
-		} catch (IOException e) {
+		}
+		// If the above test didn't work, something is wrong and we can't continue!
+		catch (IOException e) {
 			System.out.println("Error!");
 			System.err.println(e);
 			return;
