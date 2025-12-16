@@ -22,7 +22,6 @@ public class TextListToSetDiff {
 		try {
 			System.out.println(userDir.getCanonicalPath());
 		} catch (IOException e) {
-			// TODO: handle exception
 			System.out.println("Error!");
 			System.err.println(e);
 		}
