@@ -22,6 +22,9 @@ public class TextListToSetDiff {
 		// how many files to subtract from our first set/list?
 		final int AMT_FILTER_FILES = 1;
 
+		// how many files will we process in total?
+		final int AMT_FILES = AMT_FILTER_FILES+1;
+
 		// prepare scanner for console
 		Scanner cnslScanner = new Scanner(System.in);
 
