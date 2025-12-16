@@ -18,6 +18,9 @@ public class TextListToSetDiff {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		// prepare scanner for console
+		Scanner cnslScanner = new Scanner(System.in);
+
 		// get the current directory as a File
 		File userDir = new File(System.getProperty("user.dir"));
 
