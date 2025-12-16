@@ -20,7 +20,7 @@ public class TextListToSetDiff {
 		File userDir = new File(System.getProperty("user.dir"));
 
 		try {
-			System.out.println(userDir.getCanonicalPath());
+			System.out.println("Searching in: "+userDir.getCanonicalPath());
 		} catch (IOException e) {
 			System.out.println("Error!");
 			System.err.println(e);
