@@ -42,7 +42,7 @@ public class TextListToSetDiff {
 		}
 		// If the above test didn't work, something is wrong and we can't continue!
 		catch (IOException e) {
-			System.out.println("Error!");
+			System.out.println("Error in getting current directory!");
 			System.err.println(e);
 			return;
 		}
