@@ -25,6 +25,11 @@ public class TextListToSetDiff {
 		// get the current directory as a File
 		File userDir = new File(System.getProperty("user.dir"));
 
+		// list that holds our two files
+		// using arraylist to squash both references into one variable
+		// should be sorted in order of list sizes
+		ArrayList<File> filesToCompare = new ArrayList<>(2);
+
 		// Testing by outputting what directory we're in
 		try {
 			System.out.println("Searching in: "+userDir.getCanonicalPath());
