@@ -35,6 +35,10 @@ public class TextListToSetDiff {
 			return;
 		}
 		
+		
+		// while loop until user picks two available files
+			// within this while loop, two other while loops, one for each file
+		
 		// Don't forget to close the scanner!
 		cnslScanner.close();
 	}
