@@ -3,6 +3,8 @@
  */
 package textListToSetDiff;
 
+import java.io.File;
+
 /**
  * 
  */
