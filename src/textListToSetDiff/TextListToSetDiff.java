@@ -24,6 +24,7 @@ public class TextListToSetDiff {
 		} catch (IOException e) {
 			System.out.println("Error!");
 			System.err.println(e);
+			return;
 		}
 	}
 
