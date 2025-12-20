@@ -31,6 +31,9 @@ public class TextListToSetDiff {
 		// get the current directory as a File
 		File userDir = new File(System.getProperty("user.dir"));
 
+		// what should the user input to finish inputting subrahends?
+		String finishString = "f";
+
 		// list that holds our two files
 		// using arraylist to squash both references into one variable
 		// should be sorted in order of list sizes
