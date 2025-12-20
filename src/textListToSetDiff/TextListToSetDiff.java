@@ -54,36 +54,32 @@ public class TextListToSetDiff {
 		// while loop until user picks two available files
 			// within this while loop, two other while loops, one for each file
 		
-		// until we have AMT_FILES amount of files accounted for...
-		while (filesToCompare.size()<AMT_FILES) {
-			// picking our first, biggest file to filter out
-			while (filesToCompare.size()<1) {
-				System.out.println("Enter the name of the minuend and press enter file... (include file extension)");
+		// picking our first, biggest file to filter out
+		while (filesToCompare.size()<1) {
+			System.out.println("Enter the name of the minuend and press enter file... (include file extension)");
 
-				// array to store search results
-				File[] results;
+			// array to store search results
+			File[] results;
 
-				// get the name of the first file
-				String s = cnslScanner.next();
+			// get the name of the first file
+			String s = cnslScanner.next();
+			
+			// no results? file does not exist
+			// >1 result? ...impossible case, all files must have unique name
+			results = userDir.listFiles((File _, String name) -> name.equals(s));
+			if (results.length!=1) {
+				System.out.println("Invalid name! File does not exist. Please try again.");
+				continue;
+			}
+
+			filesToCompare.add(results[0]);
+			// output to verify first file
+			try {
+				System.out.println("captured " + filesToCompare.get(0).getCanonicalPath() + "!");
 				
-				// no results? file does not exist
-				// >1 result? ...impossible case, all files must have unique name
-				results = userDir.listFiles((File _, String name) -> name.equals(s));
-				if (results.length!=1) {
-					System.out.println("Invalid name! File does not exist. Please try again.");
-					continue;
-				}
-
-				filesToCompare.add(results[0]);
-				// output to verify first file
-				try {
-					System.out.println("captured " + filesToCompare.get(0).getCanonicalPath() + "!");
-					
-				} catch (IOException e) {
-					System.err.println("Error in getting directory of file, but surely it should exist!");
-					System.err.println(e);
-				}
-				return;
+			} catch (IOException e) {
+				System.err.println("Error in getting directory of file, but surely it should exist!");
+				System.err.println(e);
 			}
 		}
 
