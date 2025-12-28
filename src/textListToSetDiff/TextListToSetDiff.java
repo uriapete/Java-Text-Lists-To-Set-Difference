@@ -106,8 +106,26 @@ public class TextListToSetDiff {
 		String nextFile = "";
 
 		// while user does not say to stop...
-		while (!nextFile.equals("fin")) {
+		while (!nextFile.equals(finishString)) {
 			// call for file name the same way as above
+			System.out.println("Enter the name of the next subtrahend and press enter... (include file extension)");
+			System.out.println("Or enter '" + finishString +"'");
+
+			nextFile = cnslScanner.next();
+
+			if (nextFile.equals(finishString)) {
+				break;
+			}
+
+			File result = TextListToSetDiff.getNextFile(new Scanner(nextFile), userDir);
+
+			// if null, retrieval failed and message was printed by getNextFile
+			if (result==null) {
+				continue;
+			}
+
+			// if we're here, the file passed the test. Add it to the array
+			filesToCompare.add(result);
 		}
 
 		// Don't forget to close the scanner!
