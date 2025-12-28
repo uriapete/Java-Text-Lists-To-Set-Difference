@@ -6,12 +6,22 @@ package textListToSetDiff;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 /**
  * 
  */
 public class TextListToSetDiff {
+
+	/**
+	 * Takes a text file containing a list of string items, turns the list in that file into a HashSet.
+	 * @param txtFile The file which contains a list of strings separated by new lines.
+	 * @return A set containing the contents of the original text file.
+	 */
+	public static HashSet<String> fileToSet(File txtFile){
+		return new HashSet<>();
+	}
 
 	/**
 	 * Gets the next file as directed by Scanner input.
@@ -130,6 +140,8 @@ public class TextListToSetDiff {
 
 		// Don't forget to close the scanner!
 		cnslScanner.close();
+
+
 	}
 
 }
