@@ -41,7 +41,7 @@ public class TextListToSetDiff {
 			return results[0];
 			
 		} catch (IOException e) {
-			System.err.println("Error in getting directory of file, but surely it should exist! Please try again!");
+			System.err.println("Error in getting path of file, but surely it should exist! Please try again!");
 			System.err.println(e);
 			return null;
 		}
