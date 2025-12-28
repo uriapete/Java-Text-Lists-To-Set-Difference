@@ -5,6 +5,9 @@ package textListToSetDiff;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -172,6 +175,20 @@ public class TextListToSetDiff {
 		// for each file to compare, make it a set
 		for (File file : filesToCompare) {
 			setsToCompare.add(fileToSet(file));
+		}
+
+		// get the result - subtract all subsequent sets from first
+		HashSet<String> result = setsToCompare.get(0);
+		for (int i = 1; i < setsToCompare.size(); i++) {
+			result.removeAll(setsToCompare.get(i));
+		}
+
+		// write all in result to a file
+		try {
+			Files.write(Paths.get("result.txt"), result, StandardCharsets.UTF_8);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
