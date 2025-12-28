@@ -14,6 +14,42 @@ import java.util.Scanner;
 public class TextListToSetDiff {
 
 	/**
+	 * Gets the next file as directed by Scanner input.
+	 * @param inScn The input scanner.
+	 * @param searchInDir What directory to search in.
+	 * @return The specified file by user or null if failure.
+	 */
+	public static File getNextFile(Scanner inScn, File searchInDir){	
+		// array to store search results
+		File[] results;
+
+		// get the name of the next file
+		String s = inScn.next();
+		
+
+		// no results? file does not exist
+		// >1 result? ...impossible case, all files must have unique name
+		results = searchInDir.listFiles((File _, String name) -> name.equals(s));
+		if (results.length!=1) {
+			System.out.println("Invalid name! File does not exist. Please try again.");
+			return null;
+		}
+
+		// output to verify input file
+		try {
+			System.out.println("captured " + results[0].getCanonicalPath() + "!");
+			return results[0];
+			
+		} catch (IOException e) {
+			System.err.println("Error in getting directory of file, but surely it should exist! Please try again!");
+			System.err.println(e);
+			return null;
+		}
+
+
+	}
+
+	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
