@@ -20,7 +20,32 @@ public class TextListToSetDiff {
 	 * @return A set containing the contents of the original text file.
 	 */
 	public static HashSet<String> fileToSet(File txtFile){
-		return new HashSet<>();
+		// try with file scanner - exception on txtFile failure
+		try (Scanner fileScnr = new Scanner(txtFile)) {
+			// here's our returning set
+			HashSet<String> retSet = new HashSet<>();
+
+			// while there are more lines in the file...
+			while (fileScnr.hasNextLine()) {
+				// take the next line
+				String ln =  fileScnr.nextLine();
+
+				// try to add the next item
+				try (Scanner lnScnr = new Scanner(ln)) {
+					retSet.add(lnScnr.next());
+				}
+			}
+
+			// return the result
+			return retSet;
+		} 
+		// catch and print error
+		catch (Exception e) {
+			System.err.println(e);
+		}
+
+		// if we're here, something is horribly wrong
+		return null;
 	}
 
 	/**
