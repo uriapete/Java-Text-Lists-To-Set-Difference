@@ -90,29 +90,16 @@ public class TextListToSetDiff {
 		while (filesToCompare.size()<1) {
 			System.out.println("Enter the name of the minuend and press enter file... (include file extension)");
 
-			// array to store search results
-			File[] results;
+			// get the file the user wants to use
+			File result = TextListToSetDiff.getNextFile(cnslScanner, userDir);
 
-			// get the name of the first file
-			String s = cnslScanner.next();
-			
-			// no results? file does not exist
-			// >1 result? ...impossible case, all files must have unique name
-			results = userDir.listFiles((File _, String name) -> name.equals(s));
-			if (results.length!=1) {
-				System.out.println("Invalid name! File does not exist. Please try again.");
+			// if null, retrieval failed and message was printed by getNextFile
+			if (result==null) {
 				continue;
 			}
 
-			filesToCompare.add(results[0]);
-			// output to verify first file
-			try {
-				System.out.println("captured " + filesToCompare.get(0).getCanonicalPath() + "!");
-				
-			} catch (IOException e) {
-				System.err.println("Error in getting directory of file, but surely it should exist!");
-				System.err.println(e);
-			}
+			// if we're here, the file passed the test. Add it to the array
+			filesToCompare.add(result);
 		}
 
 		// input var
