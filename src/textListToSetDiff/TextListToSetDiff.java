@@ -50,10 +50,6 @@ public class TextListToSetDiff {
 			return;
 		}
 		
-		
-		// while loop until user picks two available files
-			// within this while loop, two other while loops, one for each file
-		
 		// picking our first, biggest file to filter out
 		while (filesToCompare.size()<1) {
 			System.out.println("Enter the name of the minuend and press enter file... (include file extension)");
