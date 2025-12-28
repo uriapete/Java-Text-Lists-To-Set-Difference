@@ -166,7 +166,13 @@ public class TextListToSetDiff {
 		// Don't forget to close the scanner!
 		cnslScanner.close();
 
+		// make the list of sets
+		ArrayList<HashSet<String>> setsToCompare = new ArrayList<>(filesToCompare.size());
 
+		// for each file to compare, make it a set
+		for (File file : filesToCompare) {
+			setsToCompare.add(fileToSet(file));
+		}
 	}
 
 }
