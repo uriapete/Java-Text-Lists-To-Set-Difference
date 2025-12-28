@@ -79,6 +79,14 @@ public class TextListToSetDiff {
 			}
 		}
 
+		// input var
+		String nextFile = "";
+
+		// while user does not say to stop...
+		while (!nextFile.equals("fin")) {
+			// call for file name the same way as above
+		}
+
 		// Don't forget to close the scanner!
 		cnslScanner.close();
 	}
